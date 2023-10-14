@@ -1,0 +1,25 @@
+name: check
+
+on:
+  push:
+    branches:
+      - '*'
+    tags-ignore:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Configure JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'corretto'
+          java-version: '11'
+          cache: 'gradle'
+      - name: Fetch origin/master
+        run: git fetch origin master
+      - name: Build
+        run: ./gradlew -Psimple.kmm.spotless.ratchet.git.branch=origin/master clean build --no-daemon --no-parallel --stacktrace

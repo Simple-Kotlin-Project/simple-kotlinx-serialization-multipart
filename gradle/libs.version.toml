@@ -1,0 +1,15 @@
+[versions]
+simplekmm = "0.6.3"
+simple_kotlin_serialization_utils = "0.8.1"
+kotlin_serialization_version = "1.6.0"
+kotlin_serialization_plugin_version = "1.9.0"
+simple-kotlin-multipart-version = "1.0.0"
+
+[libraries]
+simple_kotlin_serialization_utils = { module = "io.github.edmondantes:simple-kotlinx-serialization-utils", version.ref = "simple_kotlin_serialization_utils" }
+kotlin_serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlin_serialization_version" }
+simple-kotlin-multipart = { module = "io.github.edmondantes:simple-kotlin-multipart", version.ref = "simple-kotlin-multipart-version" }
+
+[plugins]
+simple_kotlin_gradle = { id = "io.github.edmondantes.simple.kmm.gradle.plugin", version.ref = "simplekmm" }
+kotlin_serialization_plugin = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin_serialization_plugin_version" }
